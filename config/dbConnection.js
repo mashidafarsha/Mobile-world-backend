@@ -1,9 +1,10 @@
-// server/db.js
+
 const mongoose = require('mongoose');
+let env=require('dotenv').config()
 
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb://localhost:27017/mbworld', {
+    await mongoose.connect(process.env.MONGODB_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
